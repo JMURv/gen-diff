@@ -19,7 +19,7 @@ package-install:
 
 
 make lint:
-	poetry run flake8 brain_games
+	poetry run flake8 gendiff
 
 #Git
 a:

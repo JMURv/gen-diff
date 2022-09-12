@@ -9,6 +9,9 @@ build:
 gendiff:
 	poetry run gendiff
 
+pt:
+	poetry run gendiff gendiff/tests/fixture/file1.json gendiff/tests/fixture/file2.json
+
 
 publish:
 	poetry publish --dry-run

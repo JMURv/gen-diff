@@ -1,8 +1,12 @@
 from gendiff.generate_diff import generate_diff
 import pytest
 
+perem = generate_diff('gendiff/tests/fixture/file1.json', 'gendiff/tests/fixture/file1.json')
 
-def test_main(file_1, file_2, expected):
-    with open(expected, 'r') as file:
-        result = file.read()
-    assert generate_diff(file_1, file_2) == result
+expected = 'gendiff/tests/fixture/result.txt'
+with open(expected, 'r') as file:
+    result = file.read()
+
+
+def test_main():
+    assert perem == result

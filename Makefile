@@ -7,7 +7,7 @@ build:
 
 
 gendiff:
-	poetry run gendiff
+	poetry run gendiff -h
 
 pt:
 	poetry run gendiff gendiff/tests/fixture/file1.json gendiff/tests/fixture/file2.json

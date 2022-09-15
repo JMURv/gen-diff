@@ -6,7 +6,7 @@ build:
 	poetry build
 
 
-gendiff:
+help:
 	poetry run gendiff -h
 
 pt:
@@ -24,7 +24,10 @@ package-install:
 make lint:
 	poetry run flake8 gendiff
 
-#Git
+pytest:
+	poetry run pytest
+
+#git_hub_make
 a:
 	git add .
 

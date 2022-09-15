@@ -5,9 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout code
-        - uses: actions/checkout@v2
-        - name: Linter & Tests
-          run: |
-            make install
-            make lint
-            make pytest
+          uses: actions/checkout@v3
+        - name: Poetry install
+          run: make install
+        - name: Linter Status
+          run: make lint
+        - name: Tests
+          run: make pytest

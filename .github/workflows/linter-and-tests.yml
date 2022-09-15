@@ -1,8 +1,0 @@
-name: linter-and-tests
-on: [push]
-jobs:
-  Make lint and tests:
-    runs-on: ubuntu-latest
-    steps:
-        - run make make lint
-        - run make pytest

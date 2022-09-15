@@ -27,6 +27,10 @@ make lint:
 pytest:
 	poetry run pytest
 
+coverage:
+	poetry run pytest --cov=gendiff
+
+
 #git_hub_make
 a:
 	git add .

@@ -1,4 +1,4 @@
-import json
+from gendiff.parser import data_parser
 
 
 def bool_checker(file1):
@@ -41,8 +41,8 @@ def generate_keys(source_1, source_2, all_keys):
 
 
 def generate_diff(file_path_1, file_path_2):
-    source_1 = json.load(open(file_path_1))
-    source_2 = json.load(open(file_path_2))
+    source_1 = data_parser(file_path_1)
+    source_2 = data_parser(file_path_2)
     source_1 = bool_checker(source_1)
     source_2 = bool_checker(source_2)
     keys_1, keys_2 = set(source_1.keys()), set(source_2.keys())
@@ -50,4 +50,4 @@ def generate_diff(file_path_1, file_path_2):
     return generate_keys(source_1, source_2, all_keys)
 
 
-# print(generate_diff('tests/fixture/file1.json', 'tests/fixture/file2.json'))
+print(generate_diff('tests/fixture/recursive/file1.json', 'tests/fixture/recursive/file2.json'))

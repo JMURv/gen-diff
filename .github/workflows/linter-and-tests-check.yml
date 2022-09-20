@@ -14,7 +14,7 @@ jobs:
           run: pip install poetry
         - name: poetry dependencies
           run: make install
-        - name: linter Status
+        - name: linter status
           run: make lint
         - name: tests run
           run: make pytest

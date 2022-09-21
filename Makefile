@@ -37,6 +37,9 @@ json_test:
 yml_test:
 	poetry run gendiff gendiff/tests/fixture/file1.yml gendiff/tests/fixture/file2.yml
 
+json_test_rec:
+	poetry run gendiff gendiff/tests/fixture/recursive/file1.json gendiff/tests/fixture/recursive/file2.json
+
 
 #git_hub_make
 a:

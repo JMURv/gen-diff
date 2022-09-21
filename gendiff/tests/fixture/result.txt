@@ -1,1 +1,1 @@
-{'follow': {'action': 'deleted', 'old value': 'false'}, 'host': {'action': 'nothing', 'value': 'hexlet.io'}, 'proxy': {'action': 'deleted', 'old value': '123.234.53.22'}, 'timeout': {'action': 'changed', 'old value': 50, 'new value': 20}, 'verbose': {'action': 'added', 'value': 'true'}}
+{'follow': {'action': 'deleted', 'old value': 'false'}, 'host': {'action': 'not changed', 'value': 'hexlet.io'}, 'proxy': {'action': 'deleted', 'old value': '123.234.53.22'}, 'timeout': {'action': 'changed', 'old value': 50, 'new value': 20}, 'verbose': {'action': 'added', 'value': 'true'}}

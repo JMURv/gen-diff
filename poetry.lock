@@ -160,9 +160,20 @@ testing = ["virtualenv", "pytest-xdist", "six", "process-tests", "hunter", "fiel
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "pyyml"
+version = "0.0.2"
+description = "Use python in yaml"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pyyaml = ">=3.13"
 
 [[package]]
 name = "tomli"
@@ -175,7 +186,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "6517d00a656bf30ece44dfdf757f1fa07c7b0badaf660fe98601223c8baeecbe"
+content-hash = "dbe1221edc378380901c10087ecf377a0c2389bd26e89e2eb5065d56404d53cf"
 
 [metadata.files]
 attrs = [
@@ -323,6 +334,10 @@ pyyaml = [
     {file = "PyYAML-6.0-cp39-cp39-win32.whl", hash = "sha256:b5b9eccad747aabaaffbc6064800670f0c297e52c12754eb1d976c57e4f74dcb"},
     {file = "PyYAML-6.0-cp39-cp39-win_amd64.whl", hash = "sha256:b3d267842bf12586ba6c734f89d1f5b871df0273157918b0ccefa29deb05c21c"},
     {file = "PyYAML-6.0.tar.gz", hash = "sha256:68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2"},
+]
+pyyml = [
+    {file = "pyyml-0.0.2-py2.py3-none-any.whl", hash = "sha256:17acc886bb8d58197a745003eae477b18b343ebaa0a304527c5a5dc5770a2b74"},
+    {file = "pyyml-0.0.2.tar.gz", hash = "sha256:f005c753eb36a405321eb653d803861c8570c347f89b35a7c9c21edef5248f5f"},
 ]
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},

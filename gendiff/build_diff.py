@@ -40,8 +40,8 @@ def generate_keys(source_1, source_2):
     return difference
 
 
-def generate_diff(file_1, file_2, formatter='stylish'):
-    data_1 = data_parser(file_1)
-    data_2 = data_parser(file_2)
-    diff = generate_keys(data_1, data_2)
-    return choose_formatter(diff, formatter)
+# def generate_diff(file_1, file_2, formatter='stylish'):
+#     data_1 = data_parser(file_1)
+#     data_2 = data_parser(file_2)
+#     diff = generate_keys(data_1, data_2)
+#     return choose_formatter(diff, formatter)

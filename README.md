@@ -24,4 +24,20 @@ You can use three formats:
 + **Styilsh** (default)
 + **Plain**
 + **Json**
+____
+## Interactive examples
 
+### .json flat 
+[![asciicast](https://asciinema.org/a/6gam8V1DP5ADesSuv3YXkNrk2.svg)](https://asciinema.org/a/6gam8V1DP5ADesSuv3YXkNrk2)
+
+### .yml flat
+[![asciicast](https://asciinema.org/a/DI03BcoTpo8TCFv1AyRuoCEdd.svg)](https://asciinema.org/a/DI03BcoTpo8TCFv1AyRuoCEdd)
+
+### .json nested
+[![asciicast](https://asciinema.org/a/sZLE9c8S1exDql1MskVJhOCV9.svg)](https://asciinema.org/a/sZLE9c8S1exDql1MskVJhOCV9)
+
+### Plain output
+[![asciicast](https://asciinema.org/a/XxMXFGOaUoCscrUWKHXL42Fi0.svg)](https://asciinema.org/a/XxMXFGOaUoCscrUWKHXL42Fi0)
+
+### JSON output
+[![asciicast](https://asciinema.org/a/IH9GZsinqnRHzjX85CE8D3pVo.svg)](https://asciinema.org/a/IH9GZsinqnRHzjX85CE8D3pVo)

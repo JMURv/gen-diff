@@ -44,8 +44,11 @@ yml_test:
 json_test_rec:
 	poetry run gendiff gendiff/tests/fixtures/nested/json/file1.json gendiff/tests/fixtures/nested/json/file2.json
 
-json_test_plain:
-	poetry run gendiff --format plain gendiff/tests/fixtures/nested/json/file1.json gendiff/tests/fixtures/nested/json/file2.json
+yml_test_plain:
+	poetry run gendiff --format plain gendiff/tests/fixtures/nested/yml/file1.yml gendiff/tests/fixtures/nested/yml/file2.yml
+
+json_format:
+	poetry run gendiff --format json gendiff/tests/fixtures/nested/yml/file1.yml gendiff/tests/fixtures/nested/yml/file2.yml
 
 
 

@@ -2,7 +2,7 @@ from gendiff.cli import get_arguments
 from gendiff.dicts_difference import generate_diff
 
 
-def gendiff():
+def main():
     arguments = get_arguments()
     print(
         generate_diff(
@@ -14,4 +14,4 @@ def gendiff():
 
 
 if __name__ == '__main__':
-    gendiff()
+    main()

@@ -22,23 +22,31 @@ make lint:
 	poetry run flake8 gendiff
 
 
-pytest:
+test:
 	poetry run pytest
 
 
-coverage:
+test-vv:
+	poetry run pytest -vv
+
+
+test-cov:
 	poetry run pytest --cov=gendiff --cov-report xml
 
 
 json_test:
-	poetry run gendiff gendiff/tests/fixture/file1.json gendiff/tests/fixture/file2.json
+	poetry run gendiff gendiff/tests/fixtures/plane/json/file1.json gendiff/tests/fixtures/plane/json/file2.json
 
 
 yml_test:
-	poetry run gendiff gendiff/tests/fixture/file1.yml gendiff/tests/fixture/file2.yml
+	poetry run gendiff gendiff/tests/fixtures/plane/yml/file1.yml gendiff/tests/fixtures/plane/yml/file2.yml
 
 json_test_rec:
-	poetry run gendiff gendiff/tests/fixture/recursive/file1.json gendiff/tests/fixture/recursive/file2.json
+	poetry run gendiff gendiff/tests/fixtures/nested/json/file1.json gendiff/tests/fixtures/nested/json/file2.json
+
+json_test_plain:
+	poetry run gendiff --format plain gendiff/tests/fixtures/nested/json/file1.json gendiff/tests/fixtures/nested/json/file2.json
+
 
 
 #git_hub_make

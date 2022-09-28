@@ -1,4 +1,4 @@
-from gendiff.dicts_difference import generate_diff
+from gendiff.generate_diff import generate_diff
 
 json_test = generate_diff(
     'gendiff/tests/fixtures/plane/json/file1.json',

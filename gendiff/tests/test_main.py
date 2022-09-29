@@ -19,7 +19,7 @@ def test_flat():
     assert yml_test == result
 
 
-expected_nested = 'gendiff/tests/fixtures/nested/nested_result.txt'
+expected_nested = 'gendiff/tests/fixtures/nested/nested_result'
 json_nested = generate_diff(
     'gendiff/tests/fixtures/nested/json/file1.json',
     'gendiff/tests/fixtures/nested/json/file2.json'
@@ -37,7 +37,7 @@ def test_nested():
     assert yml_nested == result
 
 
-expected_nested_plain = 'gendiff/tests/fixtures/nested/nested_result_plain.txt'
+expected_nested_plain = 'gendiff/tests/fixtures/nested/nested_result_plain'
 json_nested_plain = generate_diff(
     'gendiff/tests/fixtures/nested/json/file1.json',
     'gendiff/tests/fixtures/nested/json/file2.json',
@@ -57,7 +57,7 @@ def test_nested_plain():
     assert yml_nested_plain == result
 
 
-expected_nested_json = 'gendiff/tests/fixtures/nested/nested_result_json.txt'
+expected_nested_json = 'gendiff/tests/fixtures/nested/nested_result_json'
 json_nested_json = generate_diff(
     'gendiff/tests/fixtures/nested/json/file1.json',
     'gendiff/tests/fixtures/nested/json/file2.json',

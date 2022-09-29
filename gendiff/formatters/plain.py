@@ -18,12 +18,12 @@ def string_formatter(value, path):
     if action == 'recursive call':
         result += plain_func(value['children'], path)
     if action == 'added':
-        result += f"Property {path} was added with value: " \
+        result += f"Property '{path}' was added with value: " \
                   f"{value_getter(value['value'])}\n"
     if action == 'deleted':
-        result += f"Property {path} was removed\n"
+        result += f"Property '{path}' was removed\n"
     if action == 'changed':
-        result += f"Property {path} was updated. " \
+        result += f"Property '{path}' was updated. " \
                   f"From {value_getter(value['old value'])} " \
                   f"to {value_getter(value['new value'])}\n"
     return result

@@ -1,5 +1,3 @@
-from gendiff.formatters.main import choose_formatter
-from gendiff.parser import data_parser
 
 
 def calculate_difference(source_1, source_2, key):
@@ -38,10 +36,3 @@ def generate_keys(source_1, source_2):
     for key in all_keys:
         difference[key] = calculate_difference(source_1, source_2, key)
     return difference
-
-
-# def generate_diff(file_1, file_2, formatter='stylish'):
-#     data_1 = data_parser(file_1)
-#     data_2 = data_parser(file_2)
-#     diff = generate_keys(data_1, data_2)
-#     return choose_formatter(diff, formatter)

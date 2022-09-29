@@ -14,7 +14,7 @@ def calculate_difference(source_1, source_2, key):
     elif type(source_1[key]) == dict and type(source_2[key]) == dict:
         return {
             'action': 'recursive call',
-            'children': generate_keys(source_1[key], source_2[key])
+            'children': build_diff_for_key(source_1[key], source_2[key])
         }
     elif source_1[key] == source_2[key]:
         return {
@@ -29,7 +29,7 @@ def calculate_difference(source_1, source_2, key):
         }
 
 
-def generate_keys(source_1, source_2):
+def build_diff_for_key(source_1, source_2):
     keys_1, keys_2 = set(source_1.keys()), set(source_2.keys())
     all_keys = sorted(keys_1 | keys_2)
     difference = {}

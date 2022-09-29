@@ -1,6 +1,6 @@
 
 
-def value_getter(value):
+def string_converter(value):
     if value is None:
         return 'null'
     elif type(value) == str:
@@ -16,21 +16,25 @@ def string_formatter(value, path):
     path = path[1:] if path[0] == '.' else path
     action = value['action']
     if action == 'recursive call':
-        result += plain_func(value['children'], path) + '\n'
+        result += calculate_view(value['children'], path) + '\n'
     if action == 'added':
         result += f"Property '{path}' was added with value: " \
-                  f"{value_getter(value['value'])}\n"
+                  f"{string_converter(value['value'])}\n"
     if action == 'deleted':
         result += f"Property '{path}' was removed\n"
     if action == 'changed':
         result += f"Property '{path}' was updated. " \
-                  f"From {value_getter(value['old value'])} " \
-                  f"to {value_getter(value['new value'])}\n"
+                  f"From {string_converter(value['old value'])} " \
+                  f"to {string_converter(value['new value'])}\n"
     return result
 
 
-def plain_func(difference, path=''):
+def calculate_view(difference, path=''):
     result = ''
     for key, value in difference.items():
         result += string_formatter(value, f"{path}.{key}")
     return result.strip()
+
+
+def render_plain(data):
+    return calculate_view(data)

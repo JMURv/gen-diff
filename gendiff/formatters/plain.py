@@ -26,7 +26,7 @@ def string_formatter(value, path):
         result += f"Property '{path}' was updated. " \
                   f"From {value_getter(value['old value'])} " \
                   f"to {value_getter(value['new value'])}\n"
-    return result
+    return result.strip()
 
 
 def plain_func(difference, path=''):

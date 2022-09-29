@@ -29,10 +29,6 @@ def string_formatter(value, path):
     return result
 
 
-def stt(result):
-    return result.strip()
-
-
 def plain_func(difference, path=''):
     result = ''
     for key, value in difference.items():

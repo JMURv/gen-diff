@@ -2,8 +2,8 @@ import json
 import yaml
 
 
-def data_parser(data):
-    if data.endswith('.json'):
-        return json.load(open(data))
-    elif data.endswith('.yml') or data.endswith('.yaml'):
-        return yaml.safe_load(open(data))
+def data_parser(data, format):
+    if format == 'json':
+        return json.loads(data)
+    elif format == 'yml' or format == 'yaml':
+        return yaml.safe_load(data)

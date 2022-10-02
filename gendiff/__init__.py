@@ -1,20 +1,19 @@
 from gendiff.formatters import formatting
 from gendiff.dicts_diff import calculate_difference
 from gendiff.parser import data_parser
-FORMATS = ('json', 'yml', 'yaml')
+VALID_EXTENSIONS = ('json', 'yml', 'yaml')
 
 
-def data_open(path):
-    format = path.split('.')[-1]
-    if format in FORMATS:
+def get_data(path):
+    extension = path.split('.')[-1]
+    if extension in VALID_EXTENSIONS:
         with open(path, "r") as f:
-            return data_parser(f.read(), format)
-    else:
-        raise Exception(f"Not valid format: {format}")
+            return data_parser(f.read(), extension)
+    raise Exception(f"Not valid extension: {extension}")
 
 
 def generate_diff(file_1, file_2, formatter='stylish'):
-    data_1 = data_open(file_1)
-    data_2 = data_open(file_2)
+    data_1 = get_data(file_1)
+    data_2 = get_data(file_2)
     diff = calculate_difference(data_1, data_2)
     return formatting(diff, formatter)

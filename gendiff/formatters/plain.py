@@ -1,40 +1,40 @@
 
 
-def string_converter(value):
+def convert_to_str(value):
     if value is None:
         return 'null'
-    elif type(value) == str:
+    if type(value) == str:
         return f"'{value}'"
-    elif not isinstance(value, dict):
+    if not isinstance(value, dict):
         return str(value).lower()
-    elif type(value) == dict:
+    if type(value) == dict:
         return '[complex value]'
 
 
-def string_formatter(value, path):
+def build_line(value, path):
     result = ''
-    path = path[1:] if path[0] == '.' else path
+    path = path.strip('.')
     action = value['action']
     if action == 'recursive call':
-        result += calculate_view(value['children'], path) + '\n'
+        result += build_plain_iter(value['children'], path) + '\n'
     if action == 'added':
         result += f"Property '{path}' was added with value: " \
-                  f"{string_converter(value['value'])}\n"
+                  f"{convert_to_str(value['value'])}\n"
     if action == 'deleted':
         result += f"Property '{path}' was removed\n"
     if action == 'changed':
         result += f"Property '{path}' was updated. " \
-                  f"From {string_converter(value['old value'])} " \
-                  f"to {string_converter(value['new value'])}\n"
+                  f"From {convert_to_str(value['old value'])} " \
+                  f"to {convert_to_str(value['new value'])}\n"
     return result
 
 
-def calculate_view(difference, path=''):
+def build_plain_iter(difference, path=''):
     result = ''
     for key, value in difference.items():
-        result += string_formatter(value, f"{path}.{key}")
+        result += build_line(value, f"{path}.{key}")
     return result.strip()
 
 
 def render_plain(data):
-    return calculate_view(data)
+    return build_plain_iter(data)

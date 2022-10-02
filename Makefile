@@ -34,6 +34,10 @@ test-cov:
 	poetry run pytest --cov=gendiff --cov-report xml
 
 
+test-coverage:
+	poetry run pytest --cov
+
+
 json_test:
 	poetry run gendiff gendiff/tests/fixtures/plane/json/file1.json gendiff/tests/fixtures/plane/json/file2.json
 

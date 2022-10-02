@@ -1,7 +1,9 @@
 INDENT = '    '
+ADDED = '  + '
+REMOVED = '  - '
 
 
-def string_converter(value, depth=2):
+def convert_to_str(value, depth=2):
     if value is None:
         return 'null'
     elif type(value) == str:
@@ -11,46 +13,46 @@ def string_converter(value, depth=2):
     result = "{\n"
     for k, v in value.items():
         result += f"{INDENT * depth}{k}: "\
-                  f"{string_converter(v, depth + 1)}\n"
+                  f"{convert_to_str(v, depth + 1)}\n"
     result += f'{INDENT * (depth - 1)}' + '}'
     return result
 
 
-def string_formatter(key, value, depth):
+def build_line(key, value, depth):
     result = ''
     tabs = INDENT * depth
     action = value['action']
     if action == 'added':
-        result += f"{tabs}  + {key}: "\
-                  f"{string_converter(value['value'], depth + 2)}"
+        result += f"{tabs}{ADDED}{key}: "\
+                  f"{convert_to_str(value['value'], depth + 2)}"
 
     elif action == 'deleted':
-        result += f"{tabs}  - {key}: "\
-                  f"{string_converter(value['old value'], depth + 2)}"
+        result += f"{tabs}{REMOVED}{key}: "\
+                  f"{convert_to_str(value['old value'], depth + 2)}"
 
     elif action == 'changed':
-        result += f"{tabs}  - {key}: "\
-                  f"{string_converter(value['old value'], depth + 2)}\n"\
-                  f"{tabs}  + {key}: "\
-                  f"{string_converter(value['new value'], depth + 2)}"
+        result += f"{tabs}{REMOVED}{key}: "\
+                  f"{convert_to_str(value['old value'], depth + 2)}\n"\
+                  f"{tabs}{ADDED}{key}: "\
+                  f"{convert_to_str(value['new value'], depth + 2)}"
 
     elif action == 'recursive call':
-        result += f"{tabs}    {key}: "\
-                  f"{calculate_view(value['children'], depth+1)}"
+        result += f"{tabs}{INDENT}{key}: "\
+                  f"{build_stylish_iter(value['children'], depth+1)}"
 
     elif action == 'not changed':
-        result += f"{tabs}    {key}: "\
-                  f"{string_converter(value['value'], depth + 2)}"
+        result += f"{tabs}{INDENT}{key}: "\
+                  f"{convert_to_str(value['value'], depth + 2)}"
     return result
 
 
-def calculate_view(difference, depth=0):
+def build_stylish_iter(difference, depth=0):
     result = '{\n'
     for key, value in difference.items():
-        result += f"{string_formatter(key, value, depth)}\n"
+        result += f"{build_line(key, value, depth)}\n"
     result += f"{INDENT * depth}" + '}'
     return result
 
 
 def render_stylish(data):
-    return calculate_view(data)
+    return build_stylish_iter(data)

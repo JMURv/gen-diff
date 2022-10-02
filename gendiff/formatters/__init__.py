@@ -10,5 +10,4 @@ def formatting(difference, formatter='stylish'):
         return render_plain(difference)
     elif formatter == 'json':
         return render_json(difference)
-    else:
-        raise Exception(f"{formatter} not found")
+    raise Exception(f"formatter not found: {formatter}")

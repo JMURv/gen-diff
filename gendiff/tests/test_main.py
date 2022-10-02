@@ -66,7 +66,7 @@ def test_gen_diff(test_1, test_2, formatter, expected):
     assert generate_diff(test_1, test_2, formatter) == result
 
 
-def test_format_error():
+def test_extension_error():
     with pytest.raises(Exception) as error:
         generate_diff('file.exe', 'file_1.exe')
     assert error.value.args[0] == 'Not valid extension: exe'

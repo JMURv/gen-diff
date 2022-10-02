@@ -35,7 +35,7 @@ test-cov:
 
 
 test-coverage:
-	poetry run pytest --cov
+	poetry run pytest --cov-report term-missing --cov=gendiff
 
 
 json_test:
@@ -46,7 +46,7 @@ json_test_rec:
 	poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
 
 yml_test_plain:
-	poetry run gendiff --format plain gendiff/tests/fixtures/nested/yml/file1.yml gendiff/tests/fixtures/nested/yml/file2.yml
+	poetry run gendiff --format plain gendiff/tests/fixtures/file1.yml gendiff/tests/fixtures/file2.yml
 
 json_format:
 	poetry run gendiff --format json gendiff/tests/fixtures/nested/yml/file1.yml gendiff/tests/fixtures/nested/yml/file2.yml

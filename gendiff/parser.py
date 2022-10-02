@@ -7,3 +7,4 @@ def data_parser(data, format):
         return json.loads(data)
     elif format == 'yml' or format == 'yaml':
         return yaml.safe_load(data)
+    raise Exception(f"Not valid format: {format}")

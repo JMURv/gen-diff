@@ -39,14 +39,11 @@ test-coverage:
 
 
 json_test:
-	poetry run gendiff gendiff/tests/fixtures/plane/json/file1.json gendiff/tests/fixtures/plane/json/file2.json
+	poetry run gendiff gendiff/tests/fixtures/file1_plane.json gendiff/tests/fixtures/file2_plane.json
 
-
-yml_test:
-	poetry run gendiff gendiff/tests/fixtures/plane/yml/file1.yml gendiff/tests/fixtures/plane/yml/file2.yml
 
 json_test_rec:
-	poetry run gendiff gendiff/tests/fixtures/nested/json/file1.json gendiff/tests/fixtures/nested/json/file2.json
+	poetry run gendiff gendiff/tests/fixtures/file1.json gendiff/tests/fixtures/file2.json
 
 yml_test_plain:
 	poetry run gendiff --format plain gendiff/tests/fixtures/nested/yml/file1.yml gendiff/tests/fixtures/nested/yml/file2.yml

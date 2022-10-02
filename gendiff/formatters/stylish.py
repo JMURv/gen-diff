@@ -19,39 +19,39 @@ def convert_to_str(value, depth=2):
 
 
 def build_line(key, value, depth):
-    result = ''
+    result = []
     tabs = INDENT * depth
     action = value['action']
     if action == 'added':
-        result += f"{tabs}{ADDED}{key}: "\
-                  f"{convert_to_str(value['value'], depth + 2)}"
+        result.append(f"{tabs}{ADDED}{key}: "
+                      f"{convert_to_str(value['value'], depth + 2)}")
 
     elif action == 'deleted':
-        result += f"{tabs}{REMOVED}{key}: "\
-                  f"{convert_to_str(value['old value'], depth + 2)}"
+        result.append(f"{tabs}{REMOVED}{key}: "
+                      f"{convert_to_str(value['old value'], depth + 2)}")
 
     elif action == 'changed':
-        result += f"{tabs}{REMOVED}{key}: "\
-                  f"{convert_to_str(value['old value'], depth + 2)}\n"\
-                  f"{tabs}{ADDED}{key}: "\
-                  f"{convert_to_str(value['new value'], depth + 2)}"
+        result.append(f"{tabs}{REMOVED}{key}: "
+                      f"{convert_to_str(value['old value'], depth + 2)}\n"
+                      f"{tabs}{ADDED}{key}: "
+                      f"{convert_to_str(value['new value'], depth + 2)}")
 
     elif action == 'recursive call':
-        result += f"{tabs}{INDENT}{key}: "\
-                  f"{build_stylish_iter(value['children'], depth+1)}"
+        result.append(f"{tabs}{INDENT}{key}: "
+                      f"{build_stylish_iter(value['children'], depth+1)}")
 
     elif action == 'not changed':
-        result += f"{tabs}{INDENT}{key}: "\
-                  f"{convert_to_str(value['value'], depth + 2)}"
-    return result
+        result.append(f"{tabs}{INDENT}{key}: "
+                      f"{convert_to_str(value['value'], depth + 2)}")
+    return '\n'.join(result)
 
 
 def build_stylish_iter(difference, depth=0):
-    result = '{\n'
+    result = ['{']
     for key, value in difference.items():
-        result += f"{build_line(key, value, depth)}\n"
-    result += f"{INDENT * depth}" + '}'
-    return result
+        result.append(f"{build_line(key, value, depth)}")
+    result.append(f"{INDENT * depth}" + '}')
+    return '\n'.join(result)
 
 
 def render_stylish(data):

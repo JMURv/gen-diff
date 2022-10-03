@@ -11,59 +11,62 @@ def build_fixture_path(filepath):
     ('test_1', 'test_2', 'formatter', 'expected'),
     [
         pytest.param(
-            build_fixture_path('file1_plane.json'),
-            build_fixture_path('file2_plane.json'),
+            'file1_plane.json',
+            'file2_plane.json',
             'stylish',
-            build_fixture_path('first_test.txt')
+            'first_test.txt'
         ),
         pytest.param(
-            build_fixture_path('file1_plane.yml'),
-            build_fixture_path('file2_plane.yml'),
+            'file1_plane.yml',
+            'file2_plane.yml',
             'stylish',
-            build_fixture_path('first_test.txt')
+            'first_test.txt'
         ),
         pytest.param(
-            build_fixture_path('file1.json'),
-            build_fixture_path('file2.json'),
+            'file1.json',
+            'file2.json',
             'stylish',
-            build_fixture_path('nested_result')
+            'nested_result'
         ),
         pytest.param(
-            build_fixture_path('file1.yml'),
-            build_fixture_path('file2.yml'),
+            'file1.yml',
+            'file2.yml',
             'stylish',
-            build_fixture_path('nested_result')
+            'nested_result'
         ),
         pytest.param(
-            build_fixture_path('file1.json'),
-            build_fixture_path('file2.json'),
+            'file1.json',
+            'file2.json',
             'plain',
-            build_fixture_path('nested_result_plain')
+            'nested_result_plain'
         ),
         pytest.param(
-            build_fixture_path('file1.yml'),
-            build_fixture_path('file2.yml'),
+            'file1.yml',
+            'file2.yml',
             'plain',
-            build_fixture_path('nested_result_plain')
+            'nested_result_plain'
         ),
         pytest.param(
-            build_fixture_path('file1.json'),
-            build_fixture_path('file2.json'),
+            'file1.json',
+            'file2.json',
             'json',
-            build_fixture_path('nested_result_json')
+            'nested_result_json'
         ),
         pytest.param(
-            build_fixture_path('file1.yml'),
-            build_fixture_path('file2.yml'),
+            'file1.yml',
+            'file2.yml',
             'json',
-            build_fixture_path('nested_result_json')
+            'nested_result_json'
         )
     ]
 )
 def test_gen_diff(test_1, test_2, formatter, expected):
+    test_1 = build_fixture_path(test_1)
+    test_2 = build_fixture_path(test_2)
+    expected = build_fixture_path(expected)
     with open(expected, 'r') as f:
         result = f.read()
-    assert generate_diff(test_1, test_2, formatter) == result
+        assert generate_diff(test_1, test_2, formatter) == result
 
 
 def test_extension_error():

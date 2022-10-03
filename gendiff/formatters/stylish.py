@@ -6,9 +6,9 @@ REMOVED = '  - '
 def convert_to_str(value, depth=2):
     if value is None:
         return 'null'
-    elif type(value) == str:
+    if type(value) == str:
         return value
-    elif type(value) != dict:
+    if type(value) != dict:
         return str(value).lower()
     result = "{\n"
     for k, v in value.items():
